@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;1,700&display=swap");
+
+html {
+  font-family: "Red Hat Text", sans-serif;
+}
+
+:root {
+  --flip-height: 100px;
+  --flip-width: calc(var(--flip-height) * 0.6);
+  --line-height: calc(var(--flip-height) * 0.5);
+  --flip-container-color: #171717;
+  --flip-color: #171717;
+  --flip-text-color: #efefef;
+  --flip-border-radius: calc(var(--flip-height) * 0.06);
+  --animation-time: 0.8s;
+  --animation-ease: linear;
+  --perspective: 200px;
+}
+
+body {
+  background-image: url(/images/bg-stars.svg), url(/images/pattern-hills.svg);
+  background-attachment: fixed;
+  background-position-y: top, bottom;
+  background-color: hsl(237, 18%, 59%);
+  background-repeat: no-repeat;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: larger;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.flip-clock span {
+  justify-content: center;
+  font-size: 10px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.flip {
+  height: var(--flip-height);
+  width: var(--flip-width);
+  border: 1px solid;
+  border-radius: var(--flip-border-radius);
+  font-size: calc(var(--flip-height) * 0.5);
+  position: relative;
+  margin: 0 0.2rem;
+}
+
+.flip-display {
+  height: var(--flip-height);
+  width: var(--flip-width);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.flip-display-top,
+.flip-display-bottom {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: calc(var(--flip-height) * 0.5);
+  background-color: var(--flip-container-color);
+  color: var(--flip-text-color);
+  line-height: calc(var(--line-height) * var(--i));
+}
+
+.flip-display-top {
+  --i: 2;
+  border-top-left-radius: var(--flip-border-radius);
+  border-top-right-radius: var(--flip-border-radius);
+}
+
+.flip-display-bottom {
+  --i: -2;
+  border-bottom-left-radius: var(--flip-border-radius);
+  border-bottom-right-radius: var(--flip-border-radius);
+}
